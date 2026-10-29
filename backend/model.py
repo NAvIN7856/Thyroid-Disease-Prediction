@@ -1,12 +1,14 @@
 import pandas as pd
 import numpy as np
 import pickle
-
+from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score
-df = pd.read_csv("c:\\Users\\navin\\Documents\\VSCode\\AIML\\Thyroid_Disease_Prediction\\backend\\thyroid.csv", header=None)
+# df = pd.read_csv("c:\\Users\\navin\\Documents\\VSCode\\AIML\\Thyroid_Disease_Prediction\\backend\\thyroid.csv", header=None)
+BASE_DIR = Path(__file__).resolve().parent
+df = pd.read_csv(BASE_DIR / "thyroid.csv", header=None)
 columns = [
     'age','sex','on_thyroxine','query_on_thyroxine',
     'on_antithyroid_medication','sick','pregnant',
